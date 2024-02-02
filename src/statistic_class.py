@@ -34,10 +34,9 @@ class ClassifierResults:
 
 
 class StatisticClass:
-    def __init__(self, classifiers: Sequence[str], lenght: int):
+    def __init__(self, classifiers: Sequence[str]):
         self.classifiers = classifiers
         self.results = dict()
-        self.length = lenght
         for classifier in classifiers:
             self.results[classifier] = ClassifierResults(name=classifier)
 

@@ -19,8 +19,8 @@ def run_cross_validation(data_file = None, random_state=DEFAULT_RANDOME_STATE):
 
     cros_validator = CrossValidation(random_state=random_state)
     classifier_list = [RegressionClassifier(name="RegressionClassifier"),
-                       HerbertClassifier(name="herbert_base", configuration_path='conf/herbert_params.yaml'),
-                       HerbertClassifier(name="herbert_large", configuration_path='conf/herbert_large_params.yaml')]
+                       HerbertClassifier(name="herbert_base", configuration_path='conf/herbert_params.yaml')]
+                       #HerbertClassifier(name="herbert_large", configuration_path='conf/herbert_large_params.yaml')]
     statistic_class = StatisticClass([classifier.name for classifier in classifier_list])
     output_column = classifier_list[0].conf.data_parameters.output_column
 

@@ -7,6 +7,7 @@ import torch
 from simpletransformers.classification import (ClassificationArgs,
                                                ClassificationModel)
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 from classifier import Classifier
 from src.pydantic_models import HerBERTConfiguration
@@ -32,8 +33,9 @@ class HerbertClassifier(Classifier):
         model_args = ClassificationArgs(**self.conf.model_parameters)
         model_params = self.conf.herbert_parameters | {'args': model_args}
         self.model = ClassificationModel(**model_params)
-        train_data = self.transform_data(data)
-        self.model.train_model(train_data)
+        data = self.transform_data(data)
+        train_data, eval_data = train_test_split(data, test_size=0.15)
+        self.model.train_model(train_data, eval_df=eval_data)
         logger.info(f'Trained model {self.name}')
 
     def predict(self, data: pd.DataFrame):

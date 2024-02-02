@@ -13,7 +13,7 @@ logger = configure_logging(obtain_module_name(__name__))
 DEFAULT_RANDOM_STATE = 42
 DEFAULT_N_SPLIT = 5
 
-class CrossValidation:   # TODO: add configuration
+class CrossValidation:
     def __init__(self, n_split=DEFAULT_N_SPLIT, random_state=DEFAULT_RANDOM_STATE):
         self.n_split = n_split
         self.random_state = random_state

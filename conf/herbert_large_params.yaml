@@ -8,7 +8,7 @@ data_parameters:
   output_column: labels
 model_parameters:
   num_train_epochs: 6
-  evaluate_during_training: False
+  evaluate_during_training: True
   overwrite_output_dir: True
   save_model_every_epoch: False
   train_batch_size: 8

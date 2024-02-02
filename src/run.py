@@ -47,7 +47,7 @@ def run_resample(data_file = None, random_state=DEFAULT_RANDOME_STATE):
                        RegressionClassifier(name="Regression_ALL", configuration_path='conf/regression_params.yaml'),
                        HerbertClassifier(name="herbert_base", configuration_path='conf/herbert_params.yaml'),
                        HerbertClassifier(name="herbert_large", configuration_path='conf/herbert_large_params.yaml')]
-    statistic_class = StatisticClass([classifier.name for classifier in classifier_list], lenght=len(df))
+    statistic_class = StatisticClass([classifier.name for classifier in classifier_list])
     output_column = classifier_list[0].conf.data_parameters.output_column
 
     for train, test in sampler.run_balanced_dataset(df, output_column):

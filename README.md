@@ -2,30 +2,10 @@
 
 This is code provided for article: "Language Models use World Knowledge to Disambiguate Quantifier Scope" presented at ACL Findings 2024.
 
-
-### TODO
-- [x] Logging
-- [ ] Wandb (MM)
-- [ ] Tests
-- [x] Herbert (simple)
-- [ ] Herbert (difficult)
-- [ ] README
-- [x] Poetry requirements
-- [ ] Pip requirement
-- [ ] Docker
-- [ ] Preprocessing original data
-- [x] Structure
-- [x] Fire
-- [ ] Fire with classes
-
 ## Requirements
 
 ### Install packages with poetry
-We used poetry for packages managment. To install poetry you might want to use
-```bash
-curl -sSL https://install.python-poetry.org | python3 -
-```
-Lates in main catalogue please type:
+We used poetry for packages managment. To install packages please type:
 
 ```
 poetry install
@@ -58,8 +38,6 @@ To verify if everything is in order please test it with:
 ## Classification using logistic regression
 
 ## Classification using BERT model
-
-## Statistical tests
 
 ## Credentials
 

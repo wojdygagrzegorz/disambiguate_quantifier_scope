@@ -2,7 +2,7 @@ import pandas as pd
 
 import copy
 import logging
-from uw_quantifiers.utils import configure_logging, obtain_module_name
+from src.utils import configure_logging, obtain_module_name
 import numpy as np
 from sklearn.model_selection import train_test_split
 

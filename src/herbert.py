@@ -1,16 +1,14 @@
 import copy
 import logging
 
-import numpy as np
 import pandas as pd
-import torch
-from classifier import Classifier
 from simpletransformers.classification import (ClassificationArgs,
                                                ClassificationModel)
 from sklearn.metrics import accuracy_score
 
-from uw_quantifiers.pydantic_models import HerBERTConfiguration
-from uw_quantifiers.utils import configure_logging
+from classifier import Classifier
+from src.pydantic_models import HerBERTConfiguration
+from src.utils import configure_logging
 
 HERBERT_CONFIG = 'uw_quantifiers/herbert_params.yaml'
 logger = configure_logging(__name__)

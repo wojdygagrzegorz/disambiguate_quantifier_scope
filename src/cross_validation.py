@@ -1,17 +1,17 @@
 import copy
 import logging
+from typing import List
 
 import pandas as pd
-from uw_quantifiers.utils import configure_logging, obtain_module_name
-
 from sklearn.model_selection import StratifiedKFold
-from typing import List
-from uw_quantifiers.classifier import Classifier
+
+from src.classifier import Classifier
+from src.utils import configure_logging, obtain_module_name
 
 logger = configure_logging(obtain_module_name(__name__))
 
 DEFAULT_RANDOM_STATE = 42
-DEFAULT_N_SPLIT = 5 
+DEFAULT_N_SPLIT = 5
 
 class CrossValidation:   # TODO: add configuration
     def __init__(self, n_split=DEFAULT_N_SPLIT, random_state=DEFAULT_RANDOM_STATE):

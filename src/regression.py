@@ -9,9 +9,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-from uw_quantifiers.classifier import Classifier
-from uw_quantifiers.pydantic_models import RegressionConfiguarion
-from uw_quantifiers.utils import configure_logging, obtain_module_name
+from src.classifier import Classifier
+from src.pydantic_models import RegressionConfiguarion
+from src.utils import configure_logging, obtain_module_name
 
 REGRESSION_CONFIG = 'uw_quantifiers/regression_params.yaml'
 logger = configure_logging(obtain_module_name(__name__))

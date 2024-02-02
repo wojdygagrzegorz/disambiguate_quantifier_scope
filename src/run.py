@@ -1,18 +1,14 @@
 import fire
-import pandas as pd
-
-from uw_quantifiers.herbert import HerbertClassifier
-from uw_quantifiers.regression import RegressionClassifier
-
-from uw_quantifiers.utils import configure_logging, obtain_module_name
-from uw_quantifiers.cross_validation import CrossValidation
-from statistic_class import StatisticClass
 import numpy as np
+import pandas as pd
 from scipy.stats import t as t_dist
+from src.cross_validation import CrossValidation
+from src.herbert import HerbertClassifier
+from src.regression import RegressionClassifier
+from src.utils import configure_logging, obtain_module_name
+
 from sampler import Sampler
-
-
-
+from statistic_class import StatisticClass
 
 logger = configure_logging(obtain_module_name(__name__))
 DEFAULT_RANDOME_STATE = 42

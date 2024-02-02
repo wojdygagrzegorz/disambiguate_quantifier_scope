@@ -1,16 +1,11 @@
 import functools
-import itertools
 import operator
-from typing import Dict, List, Sequence
+from typing import Sequence
 
-import numpy as np
-from mlxtend.evaluate import mcnemar_table, mcnemar
-from scipy.stats import wilcoxon
 from sklearn.metrics import (accuracy_score, f1_score, precision_score,
                              recall_score)
 
-from uw_quantifiers.utils import configure_logging, obtain_module_name
-from scipy.stats import t as t_dist
+from src.utils import configure_logging, obtain_module_name
 
 logger = configure_logging(obtain_module_name(__name__))
 

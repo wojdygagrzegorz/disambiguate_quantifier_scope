@@ -1,0 +1,12 @@
+base_parameters:
+  name: LogisticRegression
+  model_saving_path: uw_quantifiers/models/quantifier_model.h5
+data_parameters:
+  input_columns:
+  - pozycja.1
+  - pozycja.2
+  output_column: labels
+encoder_parameters:
+  handle_unknown: ignore
+classifier_parameters:
+  random_state: 42

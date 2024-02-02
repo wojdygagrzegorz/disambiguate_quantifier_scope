@@ -18,7 +18,10 @@ def run_cross_validation(data_file = None, random_state=DEFAULT_RANDOME_STATE):
     logger.info(f'Loaded {len(df)} rows data from {data_file}')
 
     cros_validator = CrossValidation(random_state=random_state)
-    classifier_list = [RegressionClassifier(name="RegressionClassifier"),
+    classifier_list = [RegressionClassifier(name="Regression_ord", configuration_path='conf/regression_ord.yaml'),
+                       RegressionClassifier(name="Regression_role", configuration_path='conf/regression_role.yaml'),
+                       RegressionClassifier(name="Regression_lex", configuration_path='conf/regression_lex.yaml'),
+                       RegressionClassifier(name="Regression_ALL", configuration_path='conf/regression_params.yaml'),
                        HerbertClassifier(name="herbert_base", configuration_path='conf/herbert_params.yaml'),
                        HerbertClassifier(name="herbert_large", configuration_path='conf/herbert_large_params.yaml')]
     statistic_class = StatisticClass([classifier.name for classifier in classifier_list])

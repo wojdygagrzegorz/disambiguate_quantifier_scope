@@ -1,6 +1,6 @@
 base_parameters:
   name: HerBERT
-  model_saving_path: uw_quantifiers/models/herbert_model.h5
+  model_saving_path: uw_quantifiers/models_large/herbert_model.h5
 data_parameters:
   input_columns:
   - text_a

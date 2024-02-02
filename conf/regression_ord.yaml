@@ -1,14 +1,10 @@
 base_parameters:
-  name: Regression_All
+  name: LogisticRegression
   model_saving_path: uw_quantifiers/models/quantifier_model.h5
 data_parameters:
   input_columns:
   - pozycja.1
   - pozycja.2
-  - real.1
-  - real.2
-  - rola.1
-  - rola.2
   output_column: labels
 encoder_parameters:
   handle_unknown: ignore

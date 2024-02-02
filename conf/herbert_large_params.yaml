@@ -1,5 +1,5 @@
 base_parameters:
-  name: HerBERT
+  name: HerBERT_large
   model_saving_path: uw_quantifiers/models_large/herbert_model.h5
 data_parameters:
   input_columns:
@@ -7,12 +7,16 @@ data_parameters:
   - text_b
   output_column: labels
 model_parameters:
-  num_train_epochs: 4
+  num_train_epochs: 5
   evaluate_during_training: False
   overwrite_output_dir: True
   save_model_every_epoch: False
   train_batch_size: 8
   eval_batch_size: 8
+  optimizer: AdamW
+  manual_seed: 42
+  learning_rate: 4e-5
+  warmup_ratio: 0.06
   use_multiprocessing: False
   use_multiprocessing_for_evaluation: False
 herbert_parameters:

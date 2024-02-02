@@ -36,25 +36,28 @@ def run_cross_validation(data_file = None, random_state=DEFAULT_RANDOME_STATE):
     results = statistic_class.print_general_statistic()
     return results
 
-# def run_resample(data_file = None, random_state=DEFAULT_RANDOME_STATE):
-#     df = pd.read_csv(data_file)
-#     logger.info(f'Loaded {len(df)} rows data from {data_file}')
+def run_resample(data_file = None, random_state=DEFAULT_RANDOME_STATE):
+    df = pd.read_csv(data_file)
+    logger.info(f'Loaded {len(df)} rows data from {data_file}')
 
-#     sampler = Sampler(n_runs=10, random_state=random_state)
-#     classifier_list = [RegressionClassifier(name="RegressionClassifier"),
-#                        HerbertClassifier(name="herbert_base", configuration_path='uw_quantifiers/herbert_params.yaml')]
-#                        #HerbertClassifier(name="herbert_large", configuration_path='uw_quantifiers/herbert_large_params.yaml')]
-#     statistic_class = StatisticClass([classifier.name for classifier in classifier_list], lenght=len(df))
-#     output_column = classifier_list[0].conf.data_parameters.output_column
+    sampler = Sampler(random_state=random_state)
+    classifier_list = [RegressionClassifier(name="Regression_ord", configuration_path='conf/regression_ord.yaml'),
+                       RegressionClassifier(name="Regression_role", configuration_path='conf/regression_role.yaml'),
+                       RegressionClassifier(name="Regression_lex", configuration_path='conf/regression_lex.yaml'),
+                       RegressionClassifier(name="Regression_ALL", configuration_path='conf/regression_params.yaml'),
+                       HerbertClassifier(name="herbert_base", configuration_path='conf/herbert_params.yaml'),
+                       HerbertClassifier(name="herbert_large", configuration_path='conf/herbert_large_params.yaml')]
+    statistic_class = StatisticClass([classifier.name for classifier in classifier_list], lenght=len(df))
+    output_column = classifier_list[0].conf.data_parameters.output_column
 
-#     for train, test in sampler.iterate(df, output_column):
-#         for classifier in classifier_list:
-#             classifier.train(train)
-#             predicted_labels, true_labels = classifier.predict(test)
-#             statistic_class.add_results(classifier.name, predicted_labels, true_labels)
+    for train, test in sampler.run_balanced_dataset(df, output_column):
+        for classifier in classifier_list:
+            classifier.train(train)
+            predicted_labels, true_labels = classifier.predict(test)
+            statistic_class.add_results(classifier.name, predicted_labels, true_labels)
 
-#     results = statistic_class.print_general_statistic()
-#     return results
+    results = statistic_class.print_general_statistic()
+    return results
 
 def main(data_file = None, n_runs = 1):
     run_results = list()
@@ -64,6 +67,9 @@ def main(data_file = None, n_runs = 1):
         run_results.append(result)
 
     StatisticClass.calculate_stats_for_multiple_runs(run_results)
+    balanced_results = run_resample(data_file=data_file, random_state=DEFAULT_RANDOME_STATE)
+    logger.info(f'Balanced results: {balanced_results}')
+
 
 if __name__ == '__main__':
     fire.Fire(main)

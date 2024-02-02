@@ -10,7 +10,7 @@ from src.utils import configure_logging, obtain_module_name
 logger = configure_logging(obtain_module_name(__name__))
 
 
-class Sampler:   # TODO: add configuration
+class Sampler:
     def __init__(self, n_runs=5, random_state=42):
         self.n_run = n_runs
         self.random_state = random_state
@@ -24,3 +24,10 @@ class Sampler:   # TODO: add configuration
             logger.info(f'Iteration {i+1} of {self.n_run} -> random state {randint}')
             train, test = train_test_split(self.data, test_size=0.10, random_state=randint)
             yield train, test
+
+    def run_balanced_dataset(self, data: pd.DataFrame, output_column: str, number_of_last_rows: int = 232):
+        self.data = copy.copy(data)
+        self.label_column = output_column
+        logger.info(f'Running balanced dataset')
+        train, test = self.data[:-number_of_last_rows], self.data[-number_of_last_rows:]
+        yield train, test

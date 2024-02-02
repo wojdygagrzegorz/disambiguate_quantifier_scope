@@ -1,5 +1,5 @@
 base_parameters:
-  name: LogisticRegression
+  name: Regression_Role
   model_saving_path: uw_quantifiers/models/quantifier_model.h5
 data_parameters:
   input_columns:

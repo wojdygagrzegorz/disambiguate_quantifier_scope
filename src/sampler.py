@@ -1,10 +1,11 @@
-import pandas as pd
-
 import copy
 import logging
-from src.utils import configure_logging, obtain_module_name
+
 import numpy as np
+import pandas as pd
 from sklearn.model_selection import train_test_split
+
+from src.utils import configure_logging, obtain_module_name
 
 logger = configure_logging(obtain_module_name(__name__))
 

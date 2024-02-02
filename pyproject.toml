@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "uw-quantifiers"
+version = "0.1.0"
+description = ""
+authors = ["Grzegorz W. <g.wojdyga@ipipan.waw.pl>"]
+readme = "README.md"
+packages = [{include = "uw_quantifiers"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fire = "^0.5.0"
+pandas = "^2.2.0"
+simpletransformers = "^0.64.5"
+sacremoses = "^0.1.1"
+scikit-learn = "^1.4.0"
+pydantic = "^2.5.3"
+pyyaml = "^6.0.1"
+torch = "^2.1.2"
+mlxtend = "^0.23.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

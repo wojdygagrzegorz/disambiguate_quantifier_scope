@@ -15,7 +15,7 @@ model_parameters:
   eval_batch_size: 8
   optimizer: AdamW
   manual_seed: 42
-  learning_rate: 0.00002
+  learning_rate: 0.00005
   warmup_ratio: 0.06
   use_multiprocessing: False
   use_multiprocessing_for_evaluation: False

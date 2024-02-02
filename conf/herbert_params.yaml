@@ -1,0 +1,20 @@
+base_parameters:
+  name: HerBERT
+  model_saving_path: uw_quantifiers/models/herbert_model.h5
+data_parameters:
+  input_columns:
+  - text_a
+  - text_b
+  output_column: labels
+model_parameters:
+  num_train_epochs: 4
+  evaluate_during_training: False
+  overwrite_output_dir: True
+  save_model_every_epoch: False
+  train_batch_size: 8
+  eval_batch_size: 8
+  use_multiprocessing: False
+  use_multiprocessing_for_evaluation: False
+herbert_parameters:
+  model_type: herbert
+  model_name: allegro/herbert-base-cased

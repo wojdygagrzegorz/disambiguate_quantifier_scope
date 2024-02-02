@@ -2,6 +2,7 @@ import copy
 import logging
 
 import pandas as pd
+import torch
 from simpletransformers.classification import (ClassificationArgs,
                                                ClassificationModel)
 from sklearn.metrics import accuracy_score
@@ -18,7 +19,7 @@ class HerbertClassifier(Classifier):
         if name is None:
             name = self.__class__.__name__
         super().__init__(name)
-        self.conf = HerBERTConfiguration.load_from_file(configuration_path) #TODO: add small/large choice
+        self.conf = HerBERTConfiguration.load_from_file(configuration_path)
         self.conf.herbert_parameters['use_cuda'] = torch.cuda.is_available()
 
     def transform_data(self, data):

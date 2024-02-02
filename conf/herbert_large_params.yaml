@@ -8,7 +8,7 @@ data_parameters:
   output_column: labels
 model_parameters:
   num_train_epochs: 6
-  evaluate_during_training: True
+  evaluate_during_training: False
   overwrite_output_dir: True
   save_model_every_epoch: False
   train_batch_size: 8
@@ -19,12 +19,6 @@ model_parameters:
   warmup_ratio: 0.06
   use_multiprocessing: False
   use_multiprocessing_for_evaluation: False
-  use_early_stopping: True
-  early_stopping_delta: 0.01
-  early_stopping_metric: "mcc"
-  early_stopping_metric_minimize: False
-  early_stopping_patience: 2
-  evaluate_during_training_steps: 100
 herbert_parameters:
   model_type: herbert
   model_name: allegro/herbert-large-cased

@@ -13,7 +13,7 @@ from src.classifier import Classifier
 from src.pydantic_models import RegressionConfiguarion
 from src.utils import configure_logging, obtain_module_name
 
-REGRESSION_CONFIG = 'uw_quantifiers/regression_params.yaml'
+REGRESSION_CONFIG = 'conf/regression_params.yaml'
 logger = configure_logging(obtain_module_name(__name__))
 
 

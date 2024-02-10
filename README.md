@@ -1,6 +1,6 @@
 # Disambiguate Quantifier Scope
 
-This is code provided for article: "Language Models use World Knowledge to Disambiguate Quantifier Scope" presented at ACL Findings 2024.
+This is code provided for article: "Language Models use World Knowledge to Disambiguate Quantifier Scope".
 
 ## Requirements
 
